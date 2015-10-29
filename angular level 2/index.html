@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html ng-app="gameStore">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <title>Game Store</title>
+</head>
+
+<body ng-controller="StoreController as store">
+    <h1>Welcome to The Game Store</h1>
+
+    <div class="list-group">
+        <!--  Products Container  -->
+        <div class="productStyle ng-scope" ng-repeat="product in store.products">
+            <h2>{{product.name}}</h2>
+            <!--  Images Container  -->
+            <div ng-controller="GalleryController as gallery" ng-show="product.images.length>0">
+                <img class="img img-thumbnail center-block" ng-src="{{product.images[gallery.current]}}" style="height:228px;" />
+                <ul class="clearfix">
+                    <li class="pull-left thumbnail" ng-repeat="image in product.images">
+                        <img ng-src="{{image}}" style="height:128px;" ng-click="gallery.setCurrent(product.images.indexOf(image))" />
+                    </li>
+                </ul>
+            </div>
+            <!--  Price and Buttons  -->
+            <h3> {{product.price | currency : "&euro;"}} </h3>
+            <button class="btn btn-default" ng-show="product.canPurchase" ng-click="addToCart(product.soldOut)">Add to cart</button>
+            <span ng-show="!product.canPurchase">This game cannot be purchased.</span>
+            <br>
+            <br>
+            <!--  Tabs Container  -->
+            <section class="tab" ng-controller="TabController as tabCtrl" ng-init="tab = 1">
+                <ul class="nav nav-pills">
+                    <li ng-class="{active:tabCtrl.isSet(1)}">
+                        <a href ng-click="tabCtrl.setTab(1)">Description</a></li>
+                    <li ng-class="{active:tabCtrl.isSet(2)}">
+                        <a href ng-click="tabCtrl.setTab(2)">Reviews</a></li>
+                    <li ng-class="{active:tabCtrl.isSet(3)}">
+                        <a href ng-click="tabCtrl.setTab(3)">Rating</a></li>
+                </ul>
+                <div ng-show="tabCtrl.isSet(1)">
+                    <h4>Description</h4>
+                    <blockquote>{{product.description}}</blockquote>
+                </div>
+                <div ng-show="tabCtrl.isSet(2)">
+                    <h4>Specs</h4>
+                    <blockquote>{{product.review}}</blockquote>
+                </div>
+                <div ng-show="tabCtrl.isSet(3)">
+                    <h4>Rating</h4>
+                    <blockquote>Rating: {{product.rating}} stars</blockquote>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+
+<script>
+
+</script>
+
+</html>

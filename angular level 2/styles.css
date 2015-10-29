@@ -1,0 +1,26 @@
+html {
+  margin-left: 10px;
+  font-family: "Arial";
+}
+
+h1 {
+  color: #FFFFFF;
+  background-color: #00BCD4;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  padding: 8px;
+}
+
+.productStyle {
+  border-radius: 20px;
+  border: 2px solid #B6B6B6;
+  padding: 20px;
+  margin-bottom: 10px;
+}
+
+p {
+  float: right;
+  width: 85%;
+  position: relative;
+}

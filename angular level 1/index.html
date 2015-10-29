@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html ng-app="gameStore">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+
+
+    <title>Game Store</title>
+</head>
+
+<body ng-controller="StoreController as store">
+    <h1>Welcome to The Game Store</h1>
+
+    <div class="productStyle ng-scope" ng-repeat="product in store.products">
+        <h2>{{product.name}}</h2>
+        <div>
+            <img src="images/{{product.name}}.jpg" style="idth:304px;height:228px;">
+            <p>{{product.review}}</p>
+        </div>
+        <h3>{{product.price}} &euro;</h3>
+        <button ng-show="product.canPurchase" ng-click="addToCart(product.soldOut)">Add to cart</button>
+        <span ng-show="!product.canPurchase">This game cannot be purchased.</span>
+    </div>
+</body>
+
+<script>
+
+</script>
+
+</html>
