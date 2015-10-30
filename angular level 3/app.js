@@ -6,9 +6,9 @@
 
     $scope.addToCart = function (value) {
       if (value) {
-        alert("This game is sold out!");
+        alert('This game is sold out!');
       } else {
-        alert("One item added to your cart!");
+        alert('One item added to your cart!');
       }
     };
 
@@ -30,10 +30,10 @@
       this.current = newValue || 0;
     };
   });
-  
-  app.controller('ReviewController', function(){
+
+  app.controller('ReviewController', function () {
     this.rev = {};
-    this.addReview = function(product){
+    this.addReview = function (product) {
       this.rev.createdOn = Date.now();
       product.reviews.push(this.rev);
       this.rev = {};
@@ -61,11 +61,11 @@
         author: 'joe@example.org',
         createdOn: '1288323623006'
       }, {
-        stars: 1,
-        body: 'This game sucks.',
-        author: 'tim@example.org',
-        createdOn: '1397490980837'
-      }]
+          stars: 1,
+          body: 'This game sucks.',
+          author: 'tim@example.org',
+          createdOn: '1397490980837'
+        }]
     },
 
     {
@@ -86,13 +86,13 @@
         stars: 5,
         body: 'I love this gem!',
         author: 'joe@example.org',
-        createdOn:"1388123412323"
+        createdOn: "1388123412323"
       }, {
-        stars: 1,
-        body: 'This game sucks.',
-        author: 'tim@example.org',
-        createdOn: '1397490980837'
-      }]
+          stars: 1,
+          body: 'This game sucks.',
+          author: 'tim@example.org',
+          createdOn: '1397490980837'
+        }]
     },
 
     {
@@ -125,13 +125,13 @@
         stars: 5,
         body: 'I love this gem!',
         author: 'joe@example.org',
-        createdOn:"1388123412323"
+        createdOn: "1388123412323"
       }, {
-        stars: 1,
-        body: 'This game sucks.',
-        author: 'tim@example.org',
-        createdOn: '1397490980837'
-      }]
+          stars: 1,
+          body: 'This game sucks.',
+          author: 'tim@example.org',
+          createdOn: '1397490980837'
+        }]
     }
   ];
 })();

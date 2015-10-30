@@ -55,7 +55,7 @@
                     <h4>Reviews</h4>
                     <blockquote ng-repeat="rev in product.reviews">
                         <strong>{{rev.stars}} Stars</strong>
-                        <br> {{rev.body}}
+                        <div> {{rev.body}} </div>
                         <cite class="clearfix">By: {{rev.author}} on {{rev.createdOn | date:'medium'}}</cite>
                     </blockquote>
 
@@ -63,9 +63,9 @@
                     <form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
                         <!--  Live Preview -->
                         <blockquote ng-show="reviewCtrl.rev.stars || reviewCtrl.rev.body || reviewCtrl.rev.author">
-                            <strong ng-show="reviewCtrl.rev.stars">{{reviewCtrl.rev.stars}} Stars</strong> <br>
-                            {{reviewCtrl.rev.body}} <br>
-                            <cite ng-show="reviewCtrl.rev.author" class="clearfix">By: {{reviewCtrl.rev.author}} on {{reviewCtrl.rev.createdOn | date:'medium'}}</cite>
+                            <strong ng-show="reviewCtrl.rev.stars">{{reviewCtrl.rev.stars}} Stars</strong> 
+                            <div>{{reviewCtrl.rev.body}} </div>
+                            <cite ng-show="reviewCtrl.rev.author" class="clearfix">By: {{reviewCtrl.rev.author}} </cite>
                         </blockquote>
 
                         <!--  Submit session -->
