@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html ng-app="gameStore">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    
+
+    <title>Game Store</title>
+</head>
+
+<body ng-controller="StoreController as store">
+    <h1>Welcome to The Game Store</h1>
+
+    <div class="list-group">
+        <!--  Product  -->
+        <div class="productStyle ng-scope" ng-repeat="product in store.products">
+            <h2>{{product.name}}</h2>
+            
+            <!--  Images Container ( Level-4)  -->
+            <product-gallery></product-gallery>
+            
+            <!--  Price and Buttons (Level-4)  -->
+            <product-price></product-price>
+             
+            <!--  Tabs Container (Level-4) -->
+            <product-tabs></product-tabs>
+           
+        </div>
+    </div>
+</body>
+</html>
